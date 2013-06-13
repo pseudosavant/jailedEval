@@ -1,9 +1,27 @@
-﻿# jailedEval
+﻿<!-- language: lang-js -->
+
+# jailedEval
 by [Paul Ellis](http://pseudosavant.com)
 
-Allows you to safely run/eval javascript code without allowing access to the global context (window, document, etc).
+## What does jailedEval do?
+It allows you to safely run/eval javascript code without allowing access to the global context (window, document, etc).
 
-##Example usage
+## But isn't eval bad?
+Yes, eval is bad. But it is mostly bad just because you shouldn't allow untrusted code to access any of your page's or user's data (e.g. the global context). This script allows you to eval code, but only with a restricted set of global properties.
+
+## What global properties are accessible?
+You can easily change the 'allowed' global properies in the `allowed` array. By default it only allows these properties:
+
+* RegExp
+* Math
+* Array
+* Object
+* JSON
+* Number
+* parseInt
+* parseFloat
+
+## Example usage
 	ps.utils.jailedEval('var a = 2; a += 2; return a;'); // Returns 4`
 
 	ps.utils.jailedEval('return document;'); // Returns undefined`
@@ -15,4 +33,5 @@ Allows you to safely run/eval javascript code without allowing access to the glo
 	';
 	ps.utils.jailedEval(code); // Returns 3.141592653589793
 
-License:        BSD
+## License
+BSD
