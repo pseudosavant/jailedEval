@@ -22,9 +22,9 @@ You can easily change the 'allowed' global properies in the `allowed` array. By 
 * parseFloat
 
 ## Example usage
-	ps.utils.jailedEval('var a = 2; a += 2; return a;'); // Returns 4`
+	ps.utils.jailedEval('var a = 2; a += 2; return a;'); // Returns 4
 
-	ps.utils.jailedEval('return document;'); // Returns undefined`
+	ps.utils.jailedEval('return document;'); // Returns undefined
 
 	var code = '\
 		var a = Math.PI; \
