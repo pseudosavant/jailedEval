@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+    <title>Jailed Eval Example</title>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        textarea {
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <textarea id='fnBody'></textarea>
+    <button id='fnRun'>Run</button>
+    <p id='fnReturn'></p>
+
+    <script src="../src/jailedEval.min.js"></script>
+    <script>
+        var $ = document.querySelector.bind(document);
+
+        // Example
+        $('#fnRun').addEventListener('click', function () {
+            var fnBody = $('#fnBody').value;
+            try {
+                $('#fnReturn').innerHTML = ps.utils.jailedEval(fnBody);
+            } catch (e) {
+                $('#fnReturn').innerHTML = e;
+            }
+        }, false);
+    </script>
+</body>
+</html>
